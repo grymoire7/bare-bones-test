@@ -52,7 +52,7 @@ Plan: make mistakes, undo them
 ### Create a commit and completely roll it back
 ```bash
 # Create branch
-git checkout -b DEV-8776_horrible_ideas
+git switch -c DEV-8776-horrible-ideas
 
 # Edit file
 vi README.md
@@ -83,9 +83,9 @@ git revert <SHA>  # fragment of SHA
 
 ### Push a branch, then delete it both remotely and locally
 ```bash
-git push --delete origin DEV-8776_horrible_ideas  # delete remote branch
-git checkout main
-git branch -d DEV-8776_horrible_ideas  # delete local branch
+git push --delete origin DEV-8776-horrible-ideas  # delete remote branch
+git switch main
+git branch -d DEV-8776-horrible-ideas  # delete local branch
 ```
 
 
