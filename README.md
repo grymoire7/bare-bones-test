@@ -65,13 +65,16 @@ git reset --hard HEAD^ # reset index and working dir to specified commit
 
 ### Create a commit and roll it back one area at a time
 ```bash
+vi README.md
+git add -A; git commit -m “add a bad idea”
+git log
 git reset --soft HEAD^   # not in local repo (committed), but staged (in index)
 git log && git status
-git restore --staged -- README.md  # not staged, but changes appear in working directory
-# same as `git reset -- README.md`
+git restore --staged -- .  # not staged, but changes appear in working directory
+# same as `git reset -- .`
 git status
-git restore --staged --worktree -- README.md  # changes no longer appear in working directory
-# same as `git checkout -- README.md`
+git restore --staged --worktree -- .  # changes no longer appear in working directory
+# same as `git checkout -- .`
 git status
 ```
 
