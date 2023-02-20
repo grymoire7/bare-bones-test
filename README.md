@@ -80,17 +80,21 @@ git status
 
 ### Create another commit, push it, then revert it
 ```bash
-git switch revert-test-branch
-vi README.md; git add -A; git commit -m “add a bad idea”; git log; git push
+vi README.md
+git add -A; git commit -m “add a bad idea”
+git log  # Note <SHA> for "add a bad idea" commit
+git push
 git revert <SHA>  # creates a new commit with changes to revert to specified commit SHA
+git log
+bat README.md
 git push
 ```
 
 ### Push a branch, then delete it both remotely and locally
 ```bash
-git push --delete origin DEV-8776-horrible-ideas  # delete remote branch
 git switch main
-git branch -d DEV-8776-horrible-ideas  # delete local branch
+git push --delete origin DEV-8776-horrible-ideas  # delete remote branch
+git branch -d DEV-8776-horrible-ideas             # delete local branch
 ```
 
 
