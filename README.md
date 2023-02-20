@@ -1,4 +1,7 @@
 # bare-bones-test
+asdfasdfasdfa dfas dfa df asdf adf a a
+asdfasdfasdfa dfas dfa df asdf adf a a
+asdfasdfasdfa dfas dfa df asdf adf a a
 
 This is a sandbox repo for the Git Bare Bones presentation.
 
