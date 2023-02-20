@@ -82,6 +82,8 @@ git status
 ```bash
 vi README.md; git add -A; git commit -m “add a bad idea”; git log; git push
 git revert <SHA>  # fragment of SHA
+git add -A; git commit -m "Revert bad idea"
+git push
 ```
 
 ### Push a branch, then delete it both remotely and locally
