@@ -2,7 +2,7 @@
 
 This is a sandbox repo for the Git Bare Bones presentation.
 
-### First command line session:  The happy path change
+## First command line session:  The happy path change
 
 Plan: clone repo, create a branch, make changes, push changes, create/merge PR
 
@@ -45,4 +45,47 @@ git switch main # see that the changes are not here
 
 git pull  # update local/main and workspace see changes have been merged
 ```
+
+## Second command line session: Undo
+Plan: make mistakes, undo them
+
+### Create a commit and completely roll it back
+```bash
+# Create branch
+git checkout -b DEV-8776_horrible_ideas
+
+# Edit file
+vi README.md
+git add -A
+git commit -m “Add incorrect readme update”
+git commit --amend  # only last commit if not pushed, to update comment
+git log
+git reset --hard HEAD^ # reset index and working dir to specified commit
+```
+
+### Create a commit and roll it back one area at a time
+```bash
+git reset --soft HEAD^   # not in local repo (committed), but staged (in index)
+git log && git status
+git restore --staged -- README.md  # not staged, but changes appear in working directory
+# same as `git reset -- README.md`
+git status
+git restore --staged --worktree -- README.md  # changes no longer appear in working directory
+# same as `git checkout -- README.md`
+git status
+```
+
+### Create another commit, push it, then revert it
+```bash
+vi README.md; git add -A; git commit -m “add a bad idea”; git log; git push
+git revert <SHA>  # fragment of SHA
+```
+
+### Push a branch, then delete it both remotely and locally
+```bash
+git push --delete origin DEV-8776_horrible_ideas  # delete remote branch
+git checkout main
+git branch -d DEV-8776_horrible_ideas  # delete local branch
+```
+
 
