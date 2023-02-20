@@ -80,9 +80,9 @@ git status
 
 ### Create another commit, push it, then revert it
 ```bash
+git switch revert-test-branch
 vi README.md; git add -A; git commit -m “add a bad idea”; git log; git push
-git revert <SHA>  # fragment of SHA
-git add -A; git commit -m "Revert bad idea"
+git revert <SHA>  # creates a new commit with changes to revert to specified commit SHA
 git push
 ```
 
